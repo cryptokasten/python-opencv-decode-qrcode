@@ -1,0 +1,54 @@
+#+TITLE: Python OpenCV: Decode QRCode
+#+TAGS: cryptokasten, opencv, base64, python
+#+PROPERTY: header-args:sh :session *shell python-opencv-decode-qrcode sh* :results silent raw
+#+PROPERTY: header-args:python :session *shell python-opencv-decode-qrcode python* :results silent raw
+#+OPTIONS: ^:nil
+
+[[https://github.com/cryptokasten][file:https://img.shields.io/badge/dynamic/json.svg?url=https://api.github.com/users/cryptokasten&label=Cryptokasten&query=$.public_repos]]
+
+- [[https://github.com/cryptokasten/python-opencv][Python OpenCV]]
+
+- [[https://github.com/cryptokasten/python-opencv-read-image][Python OpenCV: Read image]]
+
+** System environment
+
+- Python 3.7.0
+
+Python modules:
+
+- opencv-python==4.4.0.44
+
+** Imports
+
+#+BEGIN_SRC python
+import cv2
+#+END_SRC
+
+** Filename
+
+#+BEGIN_SRC python
+fn = "data/qrcode.png"
+#+END_SRC
+
+** Open image
+
+#+BEGIN_SRC python
+img = cv2.imread(fn)
+#+END_SRC
+
+** Detector init
+
+#+BEGIN_SRC python
+detector = cv2.QRCodeDetector()
+#+END_SRC
+
+** Decode
+
+#+BEGIN_SRC python
+decodedText, points, _ = detector.detectAndDecode(img)
+#+END_SRC
+
+** References
+
+1. https://techtutorialsx.com/2019/12/08/python-opencv-detecting-and-decoding-a-qrcode/
+ 
